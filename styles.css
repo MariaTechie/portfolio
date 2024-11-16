@@ -1,0 +1,124 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Abel', sans-serif; 
+}
+h2{font-style: italic;
+font-size: 36px;
+padding-bottom: 20px;}
+
+.navbar {
+    background-color: #800020; 
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+
+.logo a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-image: url('media/bg_img (1).jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero h1 {
+    font-size: 6rem;
+    margin-bottom: 1rem; /* Adjusts space between h1 and p */
+}
+
+.hero p {
+    font-size:3.5rem;
+    margin-top: 0;
+    padding-bottom: 20px;
+}
+
+
+
+/* Footer Styles */
+.footer {
+    background-color: #800020; /* Dark red / Burgundy */
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-links li {
+    display: inline;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+nav a:hover{
+    text-decoration: underline;
+}
+.hero-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #800020; /* Matches navbar color */
+    text-decoration: none;
+    border-radius: 37px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #a0002b; /* Slightly lighter color on hover */
+}
+
