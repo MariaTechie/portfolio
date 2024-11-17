@@ -1,34 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Contact Me</title>
-    <link rel="stylesheet" href="contact.css"> <!-- Link your main stylesheet -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="contact.css">
+  <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Me</a>
-            <a href="projects.html">Projects</a>
-        </nav>
-    </header>
-
-    <main>
-        <h1>Contact Me</h1>
-        <form action="contact_form_handler.php" method="POST">
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" required>
+  <header class="navbar">
+    <div class="logo">
+        <a href="index.html">MyWebsite</a>
+        
+    </div>
+    <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About me</a></li>
+            <li class="dropdown">
+                <a href="project1.html">Projects</a>
+                <ul class="dropdown-menu fade-in">
+                    <li><a href="project1.html">Bank Account</a></li>
+                    <li><a href="project2.html">Library Management System</a></li>
+                    <li><a href="project3.html">Employee Management System</a></li>
+                    <li><a href="project4.html">School System Simulation</a></li>
+                </ul>
+            </li>
             
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            
-            <button type="submit">Send</button>
-          </form>
-          
-    </main>
+        </ul>
+    </nav>
+</header>
 
-    <footer>
-        <p>&copy; 2024 Your Name</p>
-    </footer>
+  <h1 class="fade-in">Contact Me</h1>
+  <p class="feedback-text fade-in">Feel free to leave your feedback or any inquiries!</p>
+  <form id="contactForm">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+    
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+    
+    <label for="message">Your Message:</label><br>
+    <textarea id="message" name="message" rows="4" placeholder="Enter your message here" required></textarea><br><br>
+    
+    <button type="submit">Send</button>
+  </form>
+  <div class="social-media fade-in">
+    <h2>Follow Me</h2>
+    <p>Stay connected on social media!</p>
+    <ul class="social-links">
+      <li><a href="https://www.instagram.com/maria_abouabdallah118/profilecard/?igsh=MWR0enMwcTR1em1neQ==" target="_blank">Instagram</a></li>
+      <li><a href="https://github.com/MariaTechie" target="_blank">GitHub</a></li>
+      <li><a href="https://www.tiktok.com/@maroo_118?_t=8rTnf3nQkJZ&_r=1" target="_blank">TikTok</a></li>
+    </ul>
+  </div>
+  
+  
+  <footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+  </footer>
+
+  <script src="contact.js"></script>
+  <script>// JavaScript to ensure fade-in animation is applied dynamically
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      dropdown.addEventListener('mouseenter', () => {
+        const menu = dropdown.querySelector('.dropdown-menu');
+        if (menu) {
+          menu.style.animation = 'fadeIn 1s ease-in-out';
+        }
+      });
+    });
+    </script>
 </body>
 </html>
