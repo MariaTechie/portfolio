@@ -6,28 +6,40 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 </head>
-<body>
+<body>  
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    
 
     <header class="navbar">
         <div class="logo">
-            <a href="home.html">MyWebsite</a>
+            <a href="index.html">MyWebsite</a>
         </div>
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About me</a></li>
-                <li><a href="#Projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
                 
+                <li><a href="about.html">About me</a></li>
+                <li class="dropdown">
+                    <a href="project1.html">Projects</a>
+                    <ul class="dropdown-menu fade-in">
+                        <li><a href="project1.html">Bank Account</a></li>
+                        <li><a href="project2.html">Library Management System</a></li>
+                        <li><a href="project3.html">Employee Management System</a></li>
+                        <li><a href="project4.html">School System Simulation</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
+    
     <main>
         
         <section id="home" class="hero">
-            <h1>Welcome to My Portfolio</h1><br>
-            <h2>"Fueling Curiosity, Building Skills"</h2>
-            <p>Discover my projects, skills, and more...</p>
+            <h1 class="fade-in">Welcome to My Portfolio</h1><br>
+            <h2 class="fade-in">"Fueling Curiosity, Building Skills"</h2>
+            <p class="fade-in">Discover my projects, skills, and more...</p>
             <a href="about.html" class="hero-button">Learn More About Me</a>
         </section>
 
@@ -35,15 +47,20 @@
             <div class="footer-content">
                 <p>&copy; 2024 My Website. All rights reserved.</p>
                 <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="index.htnl">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projecte1.html">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
         </footer>
         
 
-
+        <script>
+            window.addEventListener("load", function () {
+                document.getElementById("loader").style.display = "none";
+            });
+        </script>
+        
 </body>
 </html>

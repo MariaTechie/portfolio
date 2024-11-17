@@ -1,46 +1,138 @@
+/* Loader Styles */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
-* {
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Apply Fade-in to Elements */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+
+/* General Styles */
+body {
+    font-family: 'Abel', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-
-body {
-    font-family: 'Abel', sans-serif; 
-}
-h2{font-style: italic;
-font-size: 36px;
-padding-bottom: 20px;}
-
-.navbar {
+    line-height: 1.6;
+  }
+  
+  .navbar {
     background-color: #800020; 
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-}
-
-
-.logo a {
+  }
+  
+  .logo a {
     color: white;
     font-size: 1.5rem;
     text-decoration: none;
     font-weight: bold;
-}
-
-nav ul {
+  }
+  
+  nav ul {
     list-style-type: none;
     display: flex;
     gap: 1rem;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li {
+    position: relative; /* Required for dropdown */
+  }
+  
+  nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1rem;
-}
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Dropdown Styles */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #800020;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    top: 100%; /* Position below the parent link */
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dropdown-menu li {
+    width: 200px; /* Adjust width as needed */
+    padding: 0.5rem 1rem;
+  }
+  
+  .dropdown-menu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu li a:hover {
+    background-color: #6a0018; /* Slightly darker red */
+  }
+  
 .hero {
     height: 100vh;
     display: flex;

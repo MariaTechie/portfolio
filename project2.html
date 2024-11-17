@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System (Demo)</title>
+    <link rel="stylesheet" href="project1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    
+    
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">MyWebsite</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About me</a></li>
+                <li class="dropdown">
+                    <a href="project1.html">Projects</a>
+                    <ul class="dropdown-menu fade-in">
+                        <li><a href="project1.html">Bank Account</a></li>
+                        
+                        <li><a href="project3.html">Employee Management System</a></li>
+                        <li><a href="project4.html">School System Simulation</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <div class="container">
+        <h1 class="fade-in">Library Management System</h1>
+        <p class ="fade-in">
+            This interactive Python demo lets you explore the concepts of object-oriented programming (OOP). <br>
+            It features a `Book` class and 'Library' class.
+            You can test inheritance, encapsulation, getters, 
+            setters, and methods directly in your browser.<br>
+            What this program can do:<br>
+            
+            <uL class="fade-in">
+                <li>Set book's title author's name and the status</li>
+                <li>Method to add a novel to the Library</li><br>
+               
+            </uL>
+           <p class="fade-in"> Kindly note that this program is in progress and not complete, hopefully more methods will be added to make it more dynamic very soon.</p><br.
+        </p>
+        <p class="fade-in">
+            Modify the code in the editor, click "Run Code," and observe how the output changes.
+            Hope that you will like the program!
+        </p>
+        <textarea id="code">
+
+class Book():
+            def __init__(self,title,author,status='available'):
+                self.__title = title
+                self.__author=author
+                self.__status=status
+                
+            def getTitle(self):
+                return self.__title
+            
+            def setTitle(self,x):
+                self.__title=x
+                
+            def getStatus(self):
+                return self.__status
+            
+            def setStatus(self,s):
+                self.__status=s
+                
+                
+class Library():
+            novels ={'book1':['corrupt', 'penelope douglas'],
+                     'book2':['hideaway', 'penelope douglas'],
+                     'book2':['kill switch', 'penelope douglas'],
+                     'book3':['conclave', 'penelope douglas'],
+                     'book4':['nightfall', 'penelope douglas'],
+                     'book5':['firenight', 'penelope douglas']}
+            
+            def getBooks(self):
+                return self.__books
+            
+            def addBooks(self,x,y):
+                Library.novels[x]=y
+                return print(f'We added {x}to the library')
+        
+oject1=Library()
+oject1.addBooks('book6', ['punk57', 'penelope douglas'])
+        </textarea>
+        <button onclick="runCode()">Run Code</button>
+        <h3>Output:</h3>
+        <pre id="output"></pre>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 My Website. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project1.html">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        
+            window.addEventListener("load", function () {
+                document.getElementById("loader").style.display = "none";
+            });
+        
+        
+        function runCode() {
+            const output = document.getElementById("output");
+            const code = document.getElementById("code").value;
+            output.innerHTML = ""; // Clear previous output
+
+            // Configure Skulpt to run the code
+            Sk.configure({
+                output: text => (output.innerHTML += text + "\n"), // Append output
+                read: x => {
+                    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined) {
+                        throw `File not found: '${x}'`;
+                    }
+                    return Sk.builtinFiles["files"][x];
+                },
+            });
+
+            // Run the code asynchronously
+            Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, code))
+                .catch(err => (output.innerHTML += err.toString())); // Catch errors
+        }
+    </script>
+</body>
+</html>

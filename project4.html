@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School System Simulation (Demo)</title>
+    <link rel="stylesheet" href="project1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">MyWebsite</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About me</a></li>
+                <li class="dropdown">
+                    <a href="project1.html">Projects</a>
+                    <ul class="dropdown-menu fade-in">
+                        <li><a href="project1.html">Bank Account</a></li>
+                        <li><a href="project2.html">Library Management System</a></li>
+                        <li><a href="project3.html">Employee Management System</a></li>
+                     
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <div class="container">
+        <h1 class="fade-in">School System Simulation</h1>
+        <p class="fade-in">
+            This interactive Python demo lets you explore the concepts of object-oriented programming (OOP). <br>
+            It features a `Person` class and two subclasses: <br>
+            `Teacher`and `Student`.  You can test inheritance, encapsulation, getters, 
+            setters, and methods directly in your browser.<br>
+            What this program can do:<br>
+            <uL class="fade-in">
+                <li>Set person's name and age</li>
+                <li>Set grades for students and subjects for teachers.</li>
+                <li>Method to allow students to enroll in classes.</li>
+                <li>Method to let teachers assign grades for students.</li>
+                
+            </uL>
+        </p class='fade-in'>
+        <p class="fade-in">
+            Modify the code in the editor, click "Run Code," and observe how the output changes.
+            Hope that you will like the program!
+        </p>
+        <textarea id="code">  
+class Person():
+            def __init__(self,name,age):
+                self.__name=name
+                self.__age =age
+            def getName(self):
+                 return self.__name
+            
+            def getAge(self):
+                 return self.__age
+             
+class Student(Person):
+           
+            def __init__(self,name,age,grade,subjects={}):
+                super().__init__(name,age)
+                self.__grade = grade
+                self.__subjects= subjects
+            
+            def getNAME(self):
+                name = super().getName()
+                return name
+            def getAGE(self):
+                age = super().getAge()
+                return age
+           
+            
+            def getGrade(self):
+                return self.__grade
+            def setGrade(self,newGrade):
+                self.__grade=newGrade
+                return self.__grade
+            
+            def getSubjects(self):
+                return self.__subjects
+            def setSubjects(self,newSub):
+                self.__subjects=newSub
+                return self.__subjects
+            
+            def enroll(self, newClass):
+                self.__subjects.update(newClass)
+                return self.__subjects
+            
+            def display(self):
+                
+                return print(f"""                     Name: {self.getNAME()}
+                             Age: {self.getAGE()}
+                             Grade: {self.__grade}
+                             Classes: {self.__subjects}""")
+                
+                
+class Teacher(Person):
+            def __init__(self,name,age,classes=[],students={}):
+                super().__init__(name,age)
+                self.__classes=classes
+                self.__students = students
+            
+            def getNAME(self):
+                name = super().getName()
+                return name
+            def getAGE(self):
+                age = super().getAge()
+                return age
+                  
+            def getClasses(self):
+                return self.__classes
+            def setClasses(self,newClass):
+                self.__classes=newClass
+                return self.__classes
+            
+            def getStudents(self):
+                return self.__students
+            def setStudents(self,new):
+                self.__students=new
+                return self.__students
+           
+            
+            def addStudent(self,new_students):
+                return self.__students.update(new_students)
+            
+            def display(self):
+                return print(f"""                     Name: {self.getNAME()}
+                             Age: {self.getAGE()}
+                             Students: {self.__students}
+                             Classes: {self.__classes}""")
+                
+            def assign(self,eleve):
+                student_name = list(eleve.keys())[0]
+                if student_name not in self.__students:
+                    return print("Action is impossible student is not defined")        
+                else :
+                    self.__students.update(eleve)
+                    return print(f"Updated students: {self.__students}") 
+                
+                
+class Courses():
+            def __init__(self):
+              
+                self.__courses = {
+                    'arabic': ['teacher', []],
+                    'french': ['teacher', []],
+                    'english': ['teacher', []],
+                    'science': ['teacher', []],
+                    'history': ['teacher', []],
+                    'physics': ['teacher', []]
+                }
+            def enrollStudent(self,name,course):
+               if course not in self.__courses:
+                   return print('Action impossibe there is no such course')
+               else:
+                   self.__courses[course][1].extend(name)
+                   return print(f"{name} was(were) enrolled successfully in the {course} class")
+               
+            def enrollTeacher(self,name,course):
+               if course not in self.__courses:
+                   return print('Action impossibe there is no such course')
+               else:
+                   self.__courses[course][0]=name
+                   return print(f"{name} was asseigned successfully to the {course} class")
+            
+            def display(self):
+                return print(self.__courses)
+               
+               
+               
+               
+               
+courses = Courses()
+courses.enrollStudent(['Alice','layla','hiba'], 'english')
+courses.enrollTeacher('Bob', 'english')
+courses.display()
+           
+         
+         
+         
+         
+         
+         
+         
+         
+           
+object1= Teacher('maria',30)
+object1.setClasses(['math','history'])
+object1.addStudent({'layla':['good',56],'maha':['bad',3]})
+(object1.assign({'layla':['bad',67]}))
+(object1.assign({'hiba':['bad',78]}))
+                    
+                    
+                    
+           
+                
+        
+            
+        
+        
+        
+        </textarea>
+        <button onclick="runCode()">Run Code</button>
+        <h3>Output:</h3>
+        <pre id="output"></pre>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 My Website. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project1.html">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        
+            window.addEventListener("load", function () {
+                document.getElementById("loader").style.display = "none";
+            });
+        
+        
+        function runCode() {
+            const output = document.getElementById("output");
+            const code = document.getElementById("code").value;
+            output.innerHTML = ""; // Clear previous output
+
+            // Configure Skulpt to run the code
+            Sk.configure({
+                output: text => (output.innerHTML += text + "\n"), // Append output
+                read: x => {
+                    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined) {
+                        throw `File not found: '${x}'`;
+                    }
+                    return Sk.builtinFiles["files"][x];
+                },
+            });
+
+            // Run the code asynchronously
+            Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, code))
+                .catch(err => (output.innerHTML += err.toString())); // Catch errors
+        }
+    </script>
+</body>
+</html>

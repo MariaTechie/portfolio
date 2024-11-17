@@ -7,25 +7,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    
 
     <header class="navbar">
         <div class="logo">
-            <a href="home.html">MyWebsite</a>
+            <a href="index.html">MyWebsite</a>
         </div>
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li>
-                
-                <li><a href="#Projects">Projects</a></li>
+                <li><a href="index.html">Home</a></li>
+              
+                <li class="dropdown">
+                    <a href="project1.html">Projects</a>
+                    <ul class="dropdown-menu fade-in">
+                        <li><a href="project1.html">Bank Account</a></li>
+                        <li><a href="project2.html">Library Management System</a></li>
+                        <li><a href="project3.html">Employee Management System</a></li>
+                        <li><a href="project4.html">School System Simulation</a></li>
+                    </ul>
+                </li>
                 <li><a href="#contact">Contact</a></li>
-                
             </ul>
         </nav>
     </header>
-
+    
     <main>
         <section id="about" class="about-section">
-            <h1>About Me</h1>
+            <h1 class="fade-in">About Me</h1>
             <table class="about-table">
                 <tr>
                     <th>Section</th>
@@ -94,8 +105,22 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 My Website. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2024 My Website. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="index.htnl">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projecte1.html">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </footer>
+    <script>
+        window.addEventListener("load", function () {
+            document.getElementById("loader").style.display = "none";
+        });
+    </script>
+    
 
 </body>
 </html>
