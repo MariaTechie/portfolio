@@ -1,3 +1,9 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* Loader Styles */
 #loader {
   position: fixed;
@@ -27,6 +33,15 @@
   }
   100% {
       transform: rotate(360deg);
+  }
+}
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column;
+      gap: 0.5rem;
+  }
+  nav ul li {
+      text-align: center;
   }
 }
 
@@ -62,7 +77,12 @@ body {
     padding: 0;
     box-sizing: border-box;
     line-height: 1.6;
+    
+
   }
+  
+    
+  
   
   .navbar {
     background-color: #800020; 
@@ -111,6 +131,9 @@ body {
     top: 100%; /* Position below the parent link */
     left: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    visibility: hidden;
+    opacity: 0;
   }
   
   .dropdown-menu li {
@@ -127,6 +150,8 @@ body {
   
   .dropdown:hover .dropdown-menu {
     display: block;
+    visibility: visible;
+    opacity: 1;
   }
   
   .dropdown-menu li a:hover {
@@ -213,4 +238,32 @@ nav a:hover{
 .hero-button:hover {
     background-color: #a0002b; /* Slightly lighter color on hover */
 }
+.container {
+  display: flex;
+  align-items: flex-start; /* Align items at the top */
+  gap: 20px; /* Space between snippet and description */
+}
 
+.snippet {
+  flex: 1; /* Allows it to take up as much space as needed */
+}
+
+.description {
+  flex: 1; /* Allows it to take up the remaining space */
+}
+
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  padding-bottom: 0; /* 16:9 Aspect Ratio */
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-bottom:0;
+}
