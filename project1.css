@@ -15,7 +15,15 @@ html {
   align-items: center;
   z-index: 9999;
 }
-
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire background */
+  z-index: -1; /* Places it behind other content */
+}
 .spinner {
   width: 50px;
   height: 50px;
@@ -46,7 +54,7 @@ html {
   }
 }
 
-/* Apply Fade-in to Elements */
+/* Fade in class to apply it for the fade in effect*/
 .fade-in {
   animation: fadeIn 1s ease-in-out;
 }
@@ -59,6 +67,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #ffffff;
   line-height: 1.6;
 }
 
@@ -85,7 +94,7 @@ nav ul {
 }
 
 nav ul li {
-  position: relative; /* Required for dropdown */
+  position: relative; /* for the dropdown*/
 }
 
 nav ul li a {
@@ -112,7 +121,7 @@ nav a:hover {
 }
 
 .dropdown-menu li {
-  width: 200px; /* Adjust width as needed */
+  width: 200px;  
   padding: 0.5rem 1rem;
 }
 
@@ -209,6 +218,7 @@ pre {
   width: 70%;
   margin: 1rem auto;
   display: block;
+  color: black;
 }
 
 /* Footer */

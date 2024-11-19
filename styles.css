@@ -63,11 +63,20 @@ html {
   }
 }
 
-/* Apply Fade-in to Elements */
+/* class to apply foe elements to ffade in */
 .fade-in {
   animation: fadeIn 1s ease-in-out;
 }
 
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire background */
+  z-index: -1; /* Places it behind other content */
+}
 
 
 /* General Styles */
@@ -78,10 +87,14 @@ body {
     box-sizing: border-box;
     line-height: 1.6;
     
+    /*background: url('media/bgVideo.mp4');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;*/
+    
+    
 
   }
-  
-    
   
   
   .navbar {
@@ -107,7 +120,7 @@ body {
   }
   
   nav ul li {
-    position: relative; /* Required for dropdown */
+    position: relative; /*  for dropdown */
   }
   
   nav ul li a {
@@ -137,7 +150,7 @@ body {
   }
   
   .dropdown-menu li {
-    width: 200px; /* Adjust width as needed */
+    width: 200px; 
     padding: 0.5rem 1rem;
   }
   
@@ -166,7 +179,7 @@ body {
     justify-content: center;
     color: white;
     text-align: center;
-    background-image: url('media/bg_img (1).jpg');
+    background-image: url('media/Enhanced2_LE_auto_custom.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -183,6 +196,7 @@ body {
     margin-top: 0;
     padding-bottom: 20px;
 }
+
 
 
 
@@ -249,14 +263,15 @@ nav a:hover{
 }
 
 .description {
-  flex: 1; /* Allows it to take up the remaining space */
+  flex: 1;
+  color: #ffffff; /* Allows it to take up the remaining space */
 }
 
 .iframe-container {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
-  padding-bottom: 0; /* 16:9 Aspect Ratio */
+  padding-bottom: 0; 
 }
 
 .iframe-container iframe {
